@@ -5,6 +5,6 @@ stage 'Dev'
 
 node {
   git credentialsId: 'OrangeExim', url: 'https://github.com/MdAfzalAnsari/Mavendemo.git'
-  mvn 'clean package'
+  maven 'clean package'
   dir('target') {stash name: 'war', includes: 'x.war'}
 }
