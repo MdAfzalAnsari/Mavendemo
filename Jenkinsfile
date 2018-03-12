@@ -8,6 +8,5 @@ node {
   maven 'clean package'
   //dir('target') {stash name: 'war', includes: '/*.war'}
   checkout scm
-  sh 'make'
-  stash includes: '**/target/*.jar', name: 'app' 
+  stash includes: '**/target/*.war', name: 'app' 
 }
