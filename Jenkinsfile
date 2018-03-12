@@ -7,10 +7,12 @@ pipeline {
 	
     stages {
         stage('Dev1') {
-           git credentialsId: 'OrangeExim', url: 'https://github.com/MdAfzalAnsari/Mavendemo.git'
-  		   def mvnHome = tool 'M3'
-		   bat "${mvnHome}\\bin\\mvn install -Dmaven.test.skip=true"
-		   dir('target') {stash name: 'jar', includes: '/*.jar'}
+        	steps{
+	           git credentialsId: 'OrangeExim', url: 'https://github.com/MdAfzalAnsari/Mavendemo.git'
+	  		   def mvnHome = tool 'M3'
+			   bat "${mvnHome}\\bin\\mvn install -Dmaven.test.skip=true"
+			   dir('target') {stash name: 'jar', includes: '/*.jar'}
+		   }
         }
 	}
 }
