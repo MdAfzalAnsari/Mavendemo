@@ -12,4 +12,5 @@ pipeline {
 		   bat "${mvnHome}\\bin\\mvn install -Dmaven.test.skip=true"
 		   dir('target') {stash name: 'jar', includes: '/*.jar'}
         }
+	}
 }
