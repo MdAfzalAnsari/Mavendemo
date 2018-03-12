@@ -3,7 +3,7 @@ echo 'Deployemnt in Dev'
 
 pipeline {
 
-	agent any
+	agent none
 	
     stages {
         stage('Dev1') {
