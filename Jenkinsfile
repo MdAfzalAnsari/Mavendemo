@@ -11,8 +11,9 @@ node {
   dir('target') {stash name: 'jar', includes: '/*.jar'}
   // Add whichever params you think you'd most want to have
   // replace the slackURL below with the hook url provided by
-  // slack when you configure the webhook
-  def notifySlack(text, channel) {
+  // slack when you configure the webhoo
+}
+def notifySlack(text, channel) {
       def slackURL = 'https://jenkinschannel.slack.com/services/hooks/jenkins-ci/'
       def payload = JsonOutput.toJson([text      : text,
                                        channel   : channel,
@@ -20,4 +21,3 @@ node {
                                        icon_emoji: ":jenkins:"])
       sh "curl -X POST --data-urlencode \'payload=${payload}\' ${slackURL}"
   }
-}
