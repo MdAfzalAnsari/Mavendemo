@@ -8,7 +8,7 @@ node {
     def buildInfo
 
     stage('Clone sources') {
-        git url: 'https://github.com/jfrogdev/project-examples.git'
+        git url: 'https://github.com/MdAfzalAnsari/Mavendemo.git'
     }
 
     stage('Artifactory configuration') {
