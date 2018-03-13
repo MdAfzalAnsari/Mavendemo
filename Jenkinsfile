@@ -23,10 +23,7 @@ pipeline {
 	}
 	stage('including artifact'){
 		    steps{
-				dir('target') {stash name: 'jar', includes: 'target/*.jar'}
-			        git add .
-				git commit -m "added jar file"
-			    	//git push -u credentialsId: 'OrangeExim', url: 'https://github.com/MdAfzalAnsari/Mavendemo.git'
+				dir('target') {stash name: 'jar', includes: 'target/*.jar'}			        
 			}
 	}
    }
