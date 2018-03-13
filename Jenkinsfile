@@ -1,10 +1,15 @@
-echo 'Deployemnt in Dev'
-echo 'Running JenkinsFIle'
-stage 'Dev'
-
-node {  
-  git credentialsId: 'OrangeExim', url: 'https://github.com/MdAfzalAnsari/Mavendemo.git'
-  def mvnHome = tool 'M3'
-  bat "${mvnHome}\\bin\\mvn install -Dmaven.test.skip=true"
-  dir('target') {stash name: 'jar', includes: '/*.jar'}
+pipeline {
+    agent {
+        docker {
+            image 'maven:3-alpine'
+            args '-v $HOME/.m2:/root/.m2'
+        }
+    }
+    stages {
+        stage('Build') {
+            steps {
+                sh 'mvn -B'
+            }
+        }
+    }
 }
